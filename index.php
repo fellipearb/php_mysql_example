@@ -56,9 +56,7 @@
     if(isset($_POST['name'])) {
         $sql = "INSERT INTO leads (name, email, phone_number, comments) VALUES ('{$_POST['name']}', '{$_POST['email']}', '{$_POST['phone']}', '{$_POST['comments']}')";
 
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
+        if ($conn->query($sql) !== TRUE) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
